@@ -14,49 +14,49 @@
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="id_pel">ID Pelanggan</label>
-                                                        <input type="number" id="id_pel" class="form-control" placeholder="ID Pelanggan" name="id_pel">
+                                                        <input type="number" id="id_pel" class="form-control" placeholder="ID Pelanggan" name="id_pel" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="tanggal">Tanggal</label>
-                                                        <input type="date" id="tanggal" class="form-control" placeholder="Tanggal" name="tanggal">
+                                                        <input type="date" id="tanggal" class="form-control" placeholder="Tanggal" name="tanggal" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="meter_awal">NO Meteran Awal</label>
-                                                        <input type="number" id="meter_awal" class="form-control" placeholder="NO Meteran Awal" name="meter_awal">
+                                                        <input type="number" id="meter_awal" class="form-control" placeholder="NO Meteran Awal" name="meter_awal" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="meter_akhir">NO Meteran Akhir</label>
-                                                        <input type="number" id="meter_akhir" class="form-control" name="meter_akhir" placeholder="NO Meteran Akhir">
+                                                        <input type="number" id="meter_akhir" class="form-control" name="meter_akhir" placeholder="NO Meteran Akhir" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="stan_awal">Stan Awal</label>
-                                                        <input type="text" id="stan_awal" class="form-control" name="stan_awal" placeholder="Stan Awal">
+                                                        <input type="text" id="stan_awal" class="form-control" name="stan_awal" placeholder="Stan Awal" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="stan_akhir">Stan Akhir</label>
-                                                        <input type="text" id="stan_akhir" class="form-control" name="stan_akhir" placeholder="Stan Akhir">
+                                                        <input type="text" id="stan_akhir" class="form-control" name="stan_akhir" placeholder="Stan Akhir" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="daya_awal">Daya Awal</label>
-                                                        <input type="text" id="daya_awal" class="form-control" name="daya_awal" placeholder="Daya Awal">
+                                                        <input type="text" id="daya_awal" class="form-control" name="daya_awal" placeholder="Daya Awal" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label for="daya_akhir">Daya Akhir</label>
-                                                        <input type="text" id="daya_akhir" class="form-control" name="daya_akhir" placeholder="Daya Akhir">
+                                                        <input type="text" id="daya_akhir" class="form-control" name="daya_akhir" placeholder="Daya Akhir" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
