@@ -61,7 +61,6 @@
           paging: false,
           ordering: false,
           info: false,
-          searching: false,
             dom: 'Bfrtip',
             buttons: [
               {

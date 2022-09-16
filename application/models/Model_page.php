@@ -37,7 +37,7 @@ class Model_page extends CI_Model
 	}
 
 	function harian($table, $dari, $sampai){
-		return $this->db->query("SELECT * FROM $table LEFT JOIN afdeling ON sampah.id_afdeling = afdeling.id WHERE waktu >= '$dari' AND waktu  <= '$sampai'");
+		return $this->db->query("SELECT * FROM $table WHERE tanggal >= '$dari' AND tanggal  <= '$sampai'");
 	}
 
 	function tampil($table){

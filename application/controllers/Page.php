@@ -116,7 +116,7 @@ class Page extends CI_Controller {
 		if(isset($_POST['submit'])){
 			$data ['dari'] = $_POST['dari']; 
 			$data ['sampai'] = $_POST['sampai'];
-			$data['harian'] =  $this->Model_page->harian('sampah', $data['dari'], $data['sampai'])->result();
+			$data['harian'] =  $this->Model_page->harian('meteran', $data['dari'], $data['sampai'])->result();
 		}
 		$this->load->view('include/header', $data);
     $this->load->view('rekap');

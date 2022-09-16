@@ -67,7 +67,7 @@
                             </a>
                             </li>
                             <li class="sidebar-item  <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/page/rekap')){ echo 'active';} ?>">
-                            <a href="<?php echo site_url('page/laporan') ?>" class='sidebar-link'>
+                            <a href="<?php echo site_url('page/rekap') ?>" class='sidebar-link'>
                                 <i class="bi bi-journal-check"></i>
                                 <span>Rekap Laporan</span>
                             </a>
