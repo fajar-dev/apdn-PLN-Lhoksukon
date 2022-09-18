@@ -98,6 +98,28 @@ class Page extends CI_Controller {
     $this->load->view('laporan');
 		$this->load->view('include/footer');
 	}
+	public function CSV(){ 
+    // // file name 
+    $filename = 'Laporan.csv'; 
+    header("Content-Description: File Transfer"); 
+    header("Content-Disposition: attachment; filename=$filename"); 
+    header("Content-Type: application/csv; ");
+    
+    $this->db->select("id_pel, meter_awal, meter_akhir, stan_awal, stan_akhir, daya_awal, daya_akhir, tanggal");
+    $this->db->from("Meteran");
+    $this->db->order_by("tanggal", "ASC");
+    $query = $this->db->get();
+    $usersData = $query->result_array();
+    $file = fopen('php://output', 'w');
+
+    $header = array("ID Pelanggan","No Meter Awal", "No Meter Akhir", "Stan Awal", "Stan Akhir", "Daya Awal", "Daya Akhir", "Tanggal"); 
+    fputcsv($file, $header);
+    foreach ($usersData as $key=>$line){ 
+        fputcsv($file, $line); 
+    }
+    fclose($file); 
+    exit; 
+  }
 
   function hapus($id){
 		$where = array('id'=>$id);
@@ -124,9 +146,6 @@ class Page extends CI_Controller {
 	}
 
   public function user(){
-    if($this->session->userdata('level')!= 2){
-			redirect(base_url('page/dashboard'));
-		}
     $data['title'] = 'User';
     $data['desk'] = 'Data User aplikasi.';
     $data['sidebar']= $this->Model_page->tampil('afdeling')->result();

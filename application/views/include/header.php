@@ -23,12 +23,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/app.css">
     <link rel="shortcut icon" href="<?php echo base_url()?>assets/images/favicon.svg" type="image/x-icon">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
-
-
 </head>
 
 <body>
@@ -62,7 +56,7 @@
                             </li>
                             <li class="sidebar-item  <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/page/laporan')){ echo 'active';} ?>">
                             <a href="<?php echo site_url('page/laporan') ?>" class='sidebar-link'>
-                                <i class="bi bi-journal-check"></i>
+                                <i class="bi bi-journal"></i>
                                 <span>Laporan</span>
                             </a>
                             </li>

@@ -4,96 +4,19 @@
         </div>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
     <script src="<?php echo base_url()?>assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.min.js"></script>
-
     <script src="<?php echo base_url()?>assets/vendors/apexcharts/apexcharts.js"></script>
     <script src="<?php echo base_url()?>assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script src="<?php echo base_url()?>assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/main.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="<?php echo base_url()?>assets/vendors/magnific/jquery.magnific-popup.js"></script>
     <script src="<?php echo base_url()?>assets/vendors/toastify/toastify.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-    <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/page/laporan')){?> 
-    <script>
-       $(document).ready(function() {
-        $('#example').DataTable( {
-          paging: false,
-          ordering: false,
-          info: false,
-          searching: false,
-            dom: 'Bfrtip',
-            buttons: [
-              {
-                extend: 'print',
-                messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-              },
-              {
-                  extend: 'excel',
-                  messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-              },
-              {
-                extend: 'pdfHtml5',
-                messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-                download: 'open',
-                pageSize: 'A4'
-              }
-            ]
-        } );
-      } ); 
-    </script>
-    <?php } ?> 
-    <?php if(isset($harian)){?> 
-    <script>
-      $(document).ready(function() {
-        $('#periode').DataTable( {
-          paging: false,
-          ordering: false,
-          info: false,
-            dom: 'Bfrtip',
-            buttons: [
-              {
-                extend: 'print',
-                title: 'Laporan periode <?php echo $dari.' - '.$sampai?>',
-                messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-              },
-              {
-                  extend: 'excel',
-                  title: 'Laporan periode <?php echo $dari.' - '.$sampai?>',
-                  messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-              },
-              {
-                extend: 'pdfHtml5',
-                title: 'Laporan periode <?php echo $dari.' - '.$sampai?>',
-                messageTop: 'SIBASAH PTPN III Kebun Gunung Para',
-                download: 'open',
-                pageSize: 'A4'
-              }
-            ]
-        } );
-    } ); 
-    </script>
-    <?php } ?> 
       <script>
         // Simple Datatable
         const dataTable = new simpleDatatables.DataTable("#table1", {
-        });
-
-      // Basic
-        $("#select").select2({
-            theme: "bootstrap-5",
-            width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
         });
     </script>
     <script>
