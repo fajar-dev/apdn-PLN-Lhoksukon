@@ -23,7 +23,10 @@
         </form>
 
                               <?php if (isset($harian)) { ?>
-                                <table class="table table-striped" id="periode">
+                                <div class="text-center">
+                                  <a href="<?php echo base_url('page/csv_rekap') ?>/<?php echo $dari?>/<?php echo $sampai?>" class="btn btn-success w-25"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</a>
+                                </div>
+                                <table class="table table-striped" id="table1">
                                 <thead>
                                         <tr>
                                             <th>NO</th>

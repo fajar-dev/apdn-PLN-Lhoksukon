@@ -46,6 +46,14 @@ class Auth extends CI_Controller {
 					);
 			};
 			$this->session->set_userdata($sesi);
+			$log = [
+				'nama' => $this->session->userdata('nama'),
+				'user' => $user,
+				'level' => $this->session->userdata('level'),
+				'ip'=> $_SERVER['REMOTE_ADDR'],
+				'http'=> $_SERVER['HTTP_USER_AGENT']
+			];
+			$this->db->insert('log', $log);
 			redirect(base_url('page/dashboard'));
 		}else{
 			$this->session->set_flashdata('msg',

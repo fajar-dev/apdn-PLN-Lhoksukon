@@ -4,7 +4,7 @@
                           <div class="card">
                             <div class="card-header d-flex justify-content-between">
                               <div><h4 class="card-title">Data Laporan Meteran</h4></div>
-                              <div><a href="<?php echo base_url('page/csv') ?>" class="btn btn-primary"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</a></div>
+                              <div><a href="<?php echo base_url('page/csv') ?>" class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</a></div>
 
                             </div>
                             <div class="card-body">

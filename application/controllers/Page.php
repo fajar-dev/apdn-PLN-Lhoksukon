@@ -31,13 +31,8 @@ class Page extends CI_Controller {
     } 
     $data['title'] = 'Dashboard';
     $data['desk'] = $salam.' Have a nice day';
-    $data['distrik'] =  $this->Model_page->stat0('afdeling');
-    $data['kertas'] =  $this->Model_page->stat1('sampah')->row();
-    $data['plastik'] =  $this->Model_page->stat2('sampah')->row();
-    $data['total'] =  $this->Model_page->stat3('sampah')->row();
-		$data['kaleng'] =  $this->Model_page->stat4('sampah')->row();
-    $data['sidebar']= $this->Model_page->tampil('afdeling')->result();
-    $data['hasil'] =  $this->Model_page->sum()->result();
+		$data['hasil'] = $this->db->order_by('tanggal', 'DESC')->get('meteran', 10)->result();
+		$data['login'] = $this->db->order_by('date', 'DESC')->get('log', 10)->result();
 		$this->load->view('include/header', $data);
     $this->load->view('dashboard');
 		$this->load->view('include/footer');
@@ -92,7 +87,7 @@ class Page extends CI_Controller {
 
   public function laporan(){
     $data['title'] = 'Laporan';
-    $data['desk'] = 'Laporan sampah afdeling';
+    $data['desk'] = 'Laporan data meteran';
     $data['hasil'] = $this->Model_page->tampil('meteran')->result();
 		$this->load->view('include/header', $data);
     $this->load->view('laporan');
@@ -130,8 +125,8 @@ class Page extends CI_Controller {
 
   public function rekap()
 	{
-    $data['title'] = 'Laporan Hasil';
-    $data['desk'] = 'Laporan hasil data bank sampah.';
+    $data['title'] = 'Rekap Laporan';
+    $data['desk'] = 'Rekap Data Laporan Meteran.';
     $data['sidebar']= $this->Model_page->tampil('afdeling')->result();
     $data['hasil'] =  $this->Model_page->sum()->result();
     $data['total'] =  $this->Model_page->stat3('sampah')->row();
@@ -139,11 +134,37 @@ class Page extends CI_Controller {
 			$data ['dari'] = $_POST['dari']; 
 			$data ['sampai'] = $_POST['sampai'];
 			$data['harian'] =  $this->Model_page->harian('meteran', $data['dari'], $data['sampai'])->result();
+			// print_r($data);die;
 		}
 		$this->load->view('include/header', $data);
     $this->load->view('rekap');
 		$this->load->view('include/footer');
 	}
+
+	public function CSV_rekap($dari, $sampai){ 
+    // // file name 
+    $filename = 'Laporan '.$dari.' - '.$sampai.'.csv'; 
+    header("Content-Description: File Transfer"); 
+    header("Content-Disposition: attachment; filename=$filename"); 
+    header("Content-Type: application/csv; ");
+    
+    $this->db->select("id_pel, meter_awal, meter_akhir, stan_awal, stan_akhir, daya_awal, daya_akhir, tanggal");
+    $this->db->from("Meteran");
+		$arr = array('tanggal >=' => $dari, 'tanggal <=' => $sampai);
+		$this->db->where($arr);
+    $this->db->order_by("tanggal", "ASC");
+    $query = $this->db->get();
+    $usersData = $query->result_array();
+    $file = fopen('php://output', 'w');
+
+    $header = array("ID Pelanggan","No Meter Awal", "No Meter Akhir", "Stan Awal", "Stan Akhir", "Daya Awal", "Daya Akhir", "Tanggal"); 
+    fputcsv($file, $header);
+    foreach ($usersData as $key=>$line){ 
+        fputcsv($file, $line); 
+    }
+    fclose($file); 
+    exit; 
+  }
 
   public function user(){
     $data['title'] = 'User';
@@ -155,9 +176,6 @@ class Page extends CI_Controller {
 		$this->load->view('include/footer');
 	}
   public function tambah_user(){
-    if($this->session->userdata('level')!= 2){
-			redirect(base_url('page/dashboard'));
-		}
 		$nama = $_POST['nama'];
 		$jk = $_POST['jk'];
 		$alamat = $_POST['alamat'];
@@ -178,9 +196,6 @@ class Page extends CI_Controller {
 	}
 
   public function edit_user(){
-    if($this->session->userdata('level')!= 2){
-			redirect(base_url('page/dashboard'));
-		}
     $where = array('id' => $_POST['id']);
     $cek = $this->Model_page->get('user', $_POST['id'])->row();
     if($_POST['password'] == ''){
@@ -207,9 +222,6 @@ class Page extends CI_Controller {
 	}
 
   function hapus_user($id){
-    if($this->session->userdata('level')!= 2){
-			redirect(base_url('page/dashboard'));
-		}
 		$where = array('id'=>$id);
 		$this->Model_page->hapus('user',$where);
     $this->session->set_flashdata('msg','hapus');
