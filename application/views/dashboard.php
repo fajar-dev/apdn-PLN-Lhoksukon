@@ -77,15 +77,17 @@
                                     <img src="<?php echo base_url()?>assets/images/faces/1.jpg">
                                 </div>
                                 <div class="name ms-4">
-                                    <h5 class="mb-1"><?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?></h5>
-                                    <h6 class="text-muted mb-0">
-                                    <?php 
+                                    <h5 class="mb-1"><?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?> <small>( 
+                                        <?php 
                                         if( $data->level == 1){
                                             echo 'Admin';
                                         }elseif( $data->level == 2){
                                             echo 'Petugas';
                                         }
-                                    ?>
+                                        ?>
+                                    )</small></h5>
+                                    <h6 class="text-muted mb-0">
+                                    <?php echo htmlentities($data->date, ENT_QUOTES, 'UTF-8');?>
                                     </h6>
                                 </div>
                             </div>

@@ -32,7 +32,7 @@ class Page extends CI_Controller {
     $data['title'] = 'Dashboard';
     $data['desk'] = $salam.' Have a nice day';
 		$data['hasil'] = $this->db->order_by('tanggal', 'DESC')->get('meteran', 10)->result();
-		$data['login'] = $this->db->order_by('date', 'DESC')->get('log', 10)->result();
+		$data['login'] = $this->db->order_by('date', 'DESC')->get('log', 4)->result();
 		$this->load->view('include/header', $data);
     $this->load->view('dashboard');
 		$this->load->view('include/footer');
@@ -115,6 +115,22 @@ class Page extends CI_Controller {
     fclose($file); 
     exit; 
   }
+
+	public function edit_laporan(){
+    $where = array('id' => $_POST['id']);
+		$data = array(
+      'id_pel'=>$_POST['id_pel'],
+			'meter_awal'=>$_POST['meter_awal'],
+			'meter_akhir'=>$_POST['meter_akhir'],
+			'stan_awal'=>$_POST['stan_awal'],
+			'stan_akhir'=>$_POST['stan_akhir'],
+			'daya_awal'=>$_POST['daya_awal'],
+			'daya_akhir'=>$_POST['daya_akhir'],
+		);
+		$this->db->update('meteran',$data,$where);
+    $this->session->set_flashdata('msg','edit');
+		redirect(base_url('page/laporan'));
+	}
 
   function hapus($id){
 		$where = array('id'=>$id);

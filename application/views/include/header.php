@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIBASAH - <?php echo $title ?></title>
-    <meta name="description" content="Sistem Informasi Bank Sampah ">
+    <title>APDN PLN Lhoksukon - <?php echo $title ?></title>
+    <meta name="description" content="aplikasi data pergantian angka meteran PLN Lhoksukon">
     <link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/images/logo/icon.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/app.css">
-    <link rel="shortcut icon" href="<?php echo base_url()?>assets/images/favicon.svg" type="image/x-icon">
 
 </head>
 

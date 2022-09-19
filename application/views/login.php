@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistem Informasi Bank Sampah ">
     <link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/images/logo/icon.png">
-    <title>SIBASAH - <?php echo $title ?></title>
+    <title>APDN PLN Lhoksukon - <?php echo $title ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -25,7 +25,7 @@
                         <a href="index.html"><img src="<?php echo base_url() ?>assets/images/logo/logo.png" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Sistem Informasi Bank Sampah</p>
+                    <p class="auth-subtitle mb-5">aplikasi data pergantian angka meteran PLN Lhoksukon</p>
                     <?php echo $this->session->flashdata('msg') ?>
                     <form action="<?php echo base_url('auth/login') ?>" method="POST">
                         <div class="form-group position-relative has-icon-left mb-4">
