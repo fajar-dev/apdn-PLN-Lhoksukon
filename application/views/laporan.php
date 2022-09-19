@@ -4,8 +4,9 @@
                           <div class="card">
                             <div class="card-header d-flex justify-content-between">
                               <div><h4 class="card-title">Data Laporan Meteran</h4></div>
+                              <?php if($this->session->userdata('level') == 1){ ?>
                               <div><a href="<?php echo base_url('page/csv') ?>" class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</a></div>
-
+                              <?php } ?>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped" id="table1">

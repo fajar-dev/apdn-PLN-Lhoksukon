@@ -94,7 +94,9 @@ class Page extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 	public function CSV(){ 
-    // // file name 
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('dashboard'));
+		}
     $filename = 'Laporan.csv'; 
     header("Content-Description: File Transfer"); 
     header("Content-Disposition: attachment; filename=$filename"); 
@@ -117,6 +119,9 @@ class Page extends CI_Controller {
   }
 
 	public function edit_laporan(){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
     $where = array('id' => $_POST['id']);
 		$data = array(
       'id_pel'=>$_POST['id_pel'],
@@ -133,6 +138,9 @@ class Page extends CI_Controller {
 	}
 
   function hapus($id){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
 		$where = array('id'=>$id);
 		$this->Model_page->hapus('meteran',$where);
     $this->session->set_flashdata('msg','hapus');
@@ -141,6 +149,9 @@ class Page extends CI_Controller {
 
   public function rekap()
 	{
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
     $data['title'] = 'Rekap Laporan';
     $data['desk'] = 'Rekap Data Laporan Meteran.';
     $data['sidebar']= $this->Model_page->tampil('afdeling')->result();
@@ -158,7 +169,9 @@ class Page extends CI_Controller {
 	}
 
 	public function CSV_rekap($dari, $sampai){ 
-    // // file name 
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
     $filename = 'Laporan '.$dari.' - '.$sampai.'.csv'; 
     header("Content-Description: File Transfer"); 
     header("Content-Disposition: attachment; filename=$filename"); 
@@ -183,6 +196,9 @@ class Page extends CI_Controller {
   }
 
   public function user(){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
     $data['title'] = 'User';
     $data['desk'] = 'Data User aplikasi.';
     $data['sidebar']= $this->Model_page->tampil('afdeling')->result();
@@ -192,6 +208,9 @@ class Page extends CI_Controller {
 		$this->load->view('include/footer');
 	}
   public function tambah_user(){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('dashboard'));
+		}
 		$nama = $_POST['nama'];
 		$jk = $_POST['jk'];
 		$alamat = $_POST['alamat'];
@@ -212,6 +231,9 @@ class Page extends CI_Controller {
 	}
 
   public function edit_user(){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
     $where = array('id' => $_POST['id']);
     $cek = $this->Model_page->get('user', $_POST['id'])->row();
     if($_POST['password'] == ''){
@@ -238,6 +260,9 @@ class Page extends CI_Controller {
 	}
 
   function hapus_user($id){
+		if($this->session->userdata('level')!= 1){
+			redirect(base_url('page/dashboard'));
+		}
 		$where = array('id'=>$id);
 		$this->Model_page->hapus('user',$where);
     $this->session->set_flashdata('msg','hapus');
